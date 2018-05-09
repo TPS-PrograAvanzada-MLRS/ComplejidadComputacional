@@ -1,0 +1,44 @@
+package polinomio;
+
+public class Combinatorio {
+	
+	private long[][] matriz;
+	
+	public Combinatorio() {
+		this.matriz = new long[5][5];
+	}
+	
+	public long numero(int n, int k) {
+		
+		if ( k > n ) return 0;
+
+		if( n >= 0 && k == 0 || n == k )
+			matriz[n][k] = matriz[0][n] = 1;
+		
+		System.out.println("C(" + (n-k) + "," + k + ")");
+		
+		if( matriz[n-k][k] == 0 ) 
+			matriz[n-k][k] = numero(n-1,k-1) + numero(n-1,k);
+		
+		return matriz[n-k][k];
+	}
+	
+	public void mostrar() {
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++)
+				System.out.print(matriz[i][j] + " ");
+			System.out.println();
+		}
+	}
+
+	public static void main(String[] args) {
+
+		Combinatorio c = new Combinatorio();
+		
+//		c.mostrar();
+		System.out.println(c.numero(3,0));
+		c.mostrar();
+
+	}
+
+}

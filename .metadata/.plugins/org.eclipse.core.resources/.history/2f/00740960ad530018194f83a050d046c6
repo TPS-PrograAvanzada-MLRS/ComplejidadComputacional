@@ -1,0 +1,30 @@
+package polinomio;
+
+import java.math.BigDecimal;
+
+public class BinomioDeNewtonDinamico {
+	
+	private int grado;
+	private double[] coeficientes;
+	
+	public BinomioDeNewtonDinamico(int a, int b, int n) {
+		CombinatorioDinamico c = new CombinatorioDinamico();
+		this.grado = n;
+		this.coeficientes = new double[grado+1];
+		
+//		for (int i = 0; i < coeficientes.length; i++) {
+//			this.coeficientes[i] = c.numero(n, i).toString()
+//		}
+	}
+
+	public static void main(String[] args) {
+		
+		CombinatorioDinamico c = new CombinatorioDinamico();
+		
+		BigDecimal bd = new BigDecimal(c.last());
+		
+		System.out.println(bd);
+
+	}
+
+}

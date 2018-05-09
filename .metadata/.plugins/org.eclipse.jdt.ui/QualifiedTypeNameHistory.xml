@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="polinomio.Combinatorio"/>
+<fullyQualifiedTypeName name="java.math.BigInteger"/>
+<fullyQualifiedTypeName name="polinomio.BinomioDeNewtonDinamico"/>
+<fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="polinomio.CombinatorioDinamico"/>
+<fullyQualifiedTypeName name="polinomio.CombinatorioEstatico"/>
+<fullyQualifiedTypeName name="polinomio.BinomioDeNewtonEstatico"/>
+</qualifiedTypeNameHistroy>

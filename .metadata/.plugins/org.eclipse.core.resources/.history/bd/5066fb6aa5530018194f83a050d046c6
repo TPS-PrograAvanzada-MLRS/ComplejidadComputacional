@@ -1,0 +1,52 @@
+package polinomio;
+
+public class Combinatorio {
+	
+	private long[][] matriz;
+	
+	public Combinatorio() {
+		this.matriz = new long[10][10];
+		this.matriz[0][0] = 1;
+	}
+	
+	public long numero(int n, int k) {
+		
+		if ( k > n ) return 0;
+
+		System.out.println("C(" + (n-k) + "," + k + ")");
+		
+		if( n >= 0 && k == 0 || n == k )
+			matriz[n][0] = matriz[0][n] = 1;
+		
+		
+		
+		if( matriz[n-k][k] == 0 ) 
+			matriz[n-k][k] = matriz[k][n-k] = numero(n-1,k-1) + numero(n-1,k);
+		
+		return matriz[n-k][k];
+	}
+	
+	public void last() {
+		System.out.println("C(" + 2*(matriz.length-1) + "," + (matriz.length-1)+ ")");
+	}
+	
+	public void mostrar() {
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++)
+				System.out.print(matriz[i][j] + " ");
+			System.out.println();
+		}
+	}
+
+	public static void main(String[] args) {
+
+		Combinatorio c = new Combinatorio();
+		
+//		c.mostrar();
+//		System.out.println(c.numero(100,2));
+		c.last();
+//		c.mostrar();
+
+	}
+
+}

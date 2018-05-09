@@ -1,0 +1,80 @@
+package polinomio;
+import org.junit.Assert;
+import org.junit.Test;
+
+import polinomio.Polinomio;
+
+public class MultiplicacionSucesiva {
+
+	@Test
+	public void Grado0() {
+		double[]coeficientes = {2};
+		Polinomio polinomio = new Polinomio(0, coeficientes);
+		Assert.assertEquals(2, polinomio.evaluarMSucesivas(2), 0);
+	}
+	
+	@Test
+	public void Grado1() {
+		double[]coeficientes = {3,2};
+		Polinomio polinomio = new Polinomio(1, coeficientes);
+		Assert.assertEquals(8, polinomio.evaluarMSucesivas(2), 0);
+	}
+	
+	@Test
+	public void Grado3() {
+		double[]coeficientes = {-2,7,3,2};
+		Polinomio polinomio = new Polinomio(3, coeficientes);
+		Assert.assertEquals(20, polinomio.evaluarMSucesivas(2), 0);
+	}
+	
+	@Test
+	public void Grado6() {
+		double[]coeficientes = {-5,-3,0,-2,7,3,2};
+		Polinomio polinomio = new Polinomio(6, coeficientes);
+		Assert.assertEquals(-396, polinomio.evaluarMSucesivas(2), 0);
+	}
+	
+	@Test
+	public void Grado20() {
+		double[]coeficientes = {7,3,1,-4,10,-3,-2,5,-2,6,
+								-5,8,-5,0,-5,-3,0,-2,7,3,
+								2};
+		Polinomio polinomio = new Polinomio(20, coeficientes);
+		Assert.assertEquals(9217396, polinomio.evaluarMSucesivas(2), 0);
+	}
+	
+	@Test
+	public void Grado30() {
+		double[]coeficientes = {4,4,-2,-7,-5,0,-6,-2,-4,7,
+								7,3,1,-4,10,-3,-2,5,-2,6,
+								-5,8,-5,0,-5,-3,0,-2,7,3,
+								2};
+		Polinomio polinomio = new Polinomio(30, coeficientes);
+		Assert.assertEquals(4.5201913480E9, polinomio.evaluarMSucesivas(2), 0);
+	}
+	
+	@Test
+	public void Grado40() {	  // 0  9  8  7  6  5  4  3  2  1
+		double[]coeficientes = { 3, 1, 4, 5, 0,-2, 4,-5,-9, 1,//3
+								 4, 4,-2,-7,-5, 0,-6,-2,-4, 7,//2
+								 7, 3, 1,-4,10,-3,-2, 5,-2, 6,//1
+								-5, 8,-5, 0,-5,-3, 0,-2, 7, 3,//0
+								2};
+		Polinomio polinomio = new Polinomio(40, coeficientes);
+		Assert.assertEquals(1.7117696915E12, polinomio.evaluarMSucesivas(2), 0);
+	}
+	
+	@Test
+	public void Grado50() {
+		double[]coeficientes = {1,2,-4,0,6,-3,-2,-6,-5,1,
+								3,1,4,5,0,-2,4,-5,-9,1,
+								4,4,-2,-7,-5,0,-6,-2,-4,7,
+								7,3,1,-4,10,-3,-2,5,-2,6,
+								-5,8,-5,0,-5,-3,0,-2,7,3,
+								2};
+		Polinomio polinomio = new Polinomio(50, coeficientes);
+		Assert.assertEquals(1.3403671765E15, polinomio.evaluarMSucesivas(2), 0);
+
+	}
+
+}
