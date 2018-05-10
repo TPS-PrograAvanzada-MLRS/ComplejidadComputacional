@@ -54,14 +54,14 @@ public class MultiplicacionSucesiva {
 	}
 	
 	@Test
-	public void Grado40() {	  // 0  9  8  7  6  5  4  3  2  1
-		double[]coeficientes = { 3, 1, 4, 5, 0,-2, 4,-5,-9, 1,//3
-								 4, 4,-2,-7,-5, 0,-6,-2,-4, 7,//2
-								 7, 3, 1,-4,10,-3,-2, 5,-2, 6,//1
-								-5, 8,-5, 0,-5,-3, 0,-2, 7, 3,//0
+	public void Grado40() {
+		double[]coeficientes = {3,1,4,5,0,-2,4,-5,-9,1,
+								4,4,-2,-7,-5,0,-6,-2,-4,7,
+								7,3,1,-4,10,-3,-2,5,-2,6,
+								-5,8,-5,0,-5,-3,0,-2,7,3,
 								2};
 		Polinomio polinomio = new Polinomio(40, coeficientes);
-		Assert.assertEquals(1.7117696915E12, polinomio.evaluarMSucesivas(2), 0);
+		Assert.assertEquals(5.560060388724E12, polinomio.evaluarHorner(2), 0);
 	}
 	
 	@Test
@@ -73,8 +73,7 @@ public class MultiplicacionSucesiva {
 								-5,8,-5,0,-5,-3,0,-2,7,3,
 								2};
 		Polinomio polinomio = new Polinomio(50, coeficientes);
-		Assert.assertEquals(1.3403671765E15, polinomio.evaluarMSucesivas(2), 0);
-
+		Assert.assertEquals(1.340367176508788E15, polinomio.evaluarHorner(2), 0);
 	}
 
 }
