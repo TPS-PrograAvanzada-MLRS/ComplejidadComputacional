@@ -61,7 +61,7 @@ public class ProgramacionDinamica {
 								-5,8,-5,0,-5,-3,0,-2,7,3,
 								2};
 		Polinomio polinomio = new Polinomio(40, coeficientes);
-		Assert.assertEquals(1.7117696915E12, polinomio.evaluarProgDinamica(2), 0);
+		Assert.assertEquals(5.560060388724E12, polinomio.evaluarHorner(2), 0);
 	}
 	
 	@Test
@@ -73,6 +73,6 @@ public class ProgramacionDinamica {
 								-5,8,-5,0,-5,-3,0,-2,7,3,
 								2};
 		Polinomio polinomio = new Polinomio(50, coeficientes);
-		Assert.assertEquals(1.340367176508790E15, polinomio.evaluarProgDinamica(2), 0);
+		Assert.assertEquals(1.340367176508788E15, polinomio.evaluarHorner(2), 0);
 	}
 }
