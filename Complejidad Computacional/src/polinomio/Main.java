@@ -66,14 +66,35 @@ public class Main {
 		
 		//PRUEBA BINOMIO DE NEWTON
 		System.out.println();
-		int a = 1, b = 2, n = 3;
-		BinomioDeNewtonEstatico binomio = new BinomioDeNewtonEstatico(a, b, n);
+		int n;
+		double a, b;
+		long tini, tfin;
 		
-		double[] coeficientes = binomio.getCoeficientes();
+		n = 5;
+		a = 3;
+		b = 1;
+		
+		tini = System.nanoTime();
+		BinomioDeNewtonEstatico binomioEstatico = new BinomioDeNewtonEstatico(a, b, n);
+		tfin = System.nanoTime();
+		System.out.println("timeBDN = " + (tfin-tini));
 		
 		for( int i = 0 ; i <= n ; i++ )
-			System.out.println("Coeficiente del termino " + i + " es " + binomio.getKCoeficiente(i) + " (x^" + i + ")");
-		System.out.println("Vector de coeficientes: " + Arrays.toString(coeficientes));
+			System.out.println("Coeficiente del termino " + i + " (x^" + i + ")" + " es " + binomioEstatico.getKCoeficiente(i) );
+		System.out.println("Vector de coeficientes: " + Arrays.toString(binomioEstatico.getCoeficientes()));
+		
+		n = 200;
+		a = 2;
+		b = 3;
+		
+		tini = System.nanoTime();
+		BinomioDeNewtonDinamico binomioDinamico = new BinomioDeNewtonDinamico(a, b, n);
+		tfin = System.nanoTime();
+		System.out.println("timeBDN = " + (tfin-tini));
+		
+		for( int i = 0 ; i <= n ; i++ )
+			System.out.println("Coeficiente del termino " + i + " (x^" + i + ")" + " es " + binomioDinamico.getKCoeficiente(i));
+		System.out.println("Vector de coeficientes: " + Arrays.toString(binomioDinamico.getCoeficientes()));
 
 	}
 

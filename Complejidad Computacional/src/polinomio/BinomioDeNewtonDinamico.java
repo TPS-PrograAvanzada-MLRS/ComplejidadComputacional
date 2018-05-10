@@ -8,8 +8,8 @@ public class BinomioDeNewtonDinamico {
 	private int grado;
 	private BigDecimal[] coeficientes;
 	
-	public BinomioDeNewtonDinamico(int a, int b, int n) {
-		CombinatorioDinamico c = new CombinatorioDinamico();
+	public BinomioDeNewtonDinamico(double a, double b, int n) {
+		CombinatorioDinamico c = new CombinatorioDinamico(n);
 		this.grado = n;
 		this.coeficientes = new BigDecimal[grado+1];
 		
@@ -26,17 +26,25 @@ public class BinomioDeNewtonDinamico {
 	public BigDecimal getKCoeficiente(int k) {
 		return this.coeficientes[this.grado-k];
 	}
+	
+	public int getGrado() {
+		return this.grado;
+	}
 
 	public static void main(String[] args) {
 		
-		int a = 1, b = 1, n = 200;
-		BinomioDeNewtonDinamico binomio = new BinomioDeNewtonDinamico(a, b, n);
+		int n = 200;
+		double a = 2, b = 3;
+		long tini, tfin;
 		
-		BigDecimal[] coeficientes = binomio.getCoeficientes();
+		tini = System.nanoTime();
+		BinomioDeNewtonDinamico binomio = new BinomioDeNewtonDinamico(a, b, n);
+		tfin = System.nanoTime();
+		System.out.println("timeBDN = " + (tfin-tini));
 		
 		for( int i = 0 ; i <= n ; i++ )
-			System.out.println("Coeficiente del termino " + i + " es " + binomio.getKCoeficiente(i) + " (x^" + i + ")");
-		System.out.println("Vector de coeficientes: " + Arrays.toString(coeficientes));
+			System.out.println("Coeficiente del termino " + i + " (x^" + i + ")" + " es " + binomio.getKCoeficiente(i));
+		System.out.println("Vector de coeficientes: " + Arrays.toString(binomio.getCoeficientes()));
 
 	}
 

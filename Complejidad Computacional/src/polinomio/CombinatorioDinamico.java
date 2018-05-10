@@ -6,10 +6,13 @@ public class CombinatorioDinamico {
 
 private BigInteger[][] matriz;
 	
-	public CombinatorioDinamico() {
-		int tam = 200;
-		this.matriz = new BigInteger[tam+1][tam+1];
+	public CombinatorioDinamico(int n) {
+		this.matriz = new BigInteger[n+1][n+1];
 		this.matriz[0][0] = BigInteger.valueOf(1);
+	}
+	
+	public CombinatorioDinamico() {
+		this(200);
 	}
 	
 	public BigInteger numero(int n, int k) {
@@ -25,7 +28,7 @@ private BigInteger[][] matriz;
 	}
 	
 	public BigInteger last() {
-		System.out.println("C(" + 2*(matriz.length-1) + "," + (matriz.length-1) + ")");
+//		System.out.println("C(" + 2*(matriz.length-1) + "," + (matriz.length-1) + ")");
 		return numero(2*(matriz.length-1),matriz.length-1);
 	}
 	
@@ -40,9 +43,7 @@ private BigInteger[][] matriz;
 	public static void main(String[] args) {
 
 		CombinatorioDinamico c = new CombinatorioDinamico();
-		
-//		c.mostrar();
-//		System.out.println(c.numero(100,50));
+
 		System.out.println(c.last());
 		c.mostrar();
 
