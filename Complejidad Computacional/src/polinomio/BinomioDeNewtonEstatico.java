@@ -8,7 +8,7 @@ public class BinomioDeNewtonEstatico{
 	private double[] coeficientes;
 	
 	public BinomioDeNewtonEstatico(double a, double b, int n) {
-		CombinatorioEstatico combinatorio = new CombinatorioEstatico(n);
+		Pascal combinatorio = new Pascal(n);
 		this.grado = n;
 		this.coeficientes = new double[grado + 1];
 		
@@ -30,18 +30,18 @@ public class BinomioDeNewtonEstatico{
 
 	public static void main(String[] args) {
 		
-		int n = 4;
+		int n = 9;
 		double a = 1, b = 1;
 		long tini, tfin;
 		
-		tini = System.nanoTime();
+		tini = System.currentTimeMillis();
 		BinomioDeNewtonEstatico binomio = new BinomioDeNewtonEstatico(a, b, n);
-		tfin = System.nanoTime();
-		System.out.println("timeBDN = " + (tfin-tini));
+		tfin = System.currentTimeMillis();
+		System.out.println(" Time = " + (tfin-tini));
 		
 		for( int i = 0 ; i <= n ; i++ )
-			System.out.println("Coeficiente del termino " + i + " (x^" + i + ")" + " es " + binomio.getKCoeficiente(i) );
-		System.out.println("Vector de coeficientes: " + Arrays.toString(binomio.getCoeficientes()));
+			System.out.println(" x^" + i + " * " + binomio.getKCoeficiente(i) );
+		System.out.println(" Vector de coeficientes: " + Arrays.toString(binomio.getCoeficientes()));
 		
 		Polinomio polinomio = new Polinomio(binomio.getGrado(), binomio.getCoeficientes());
 		

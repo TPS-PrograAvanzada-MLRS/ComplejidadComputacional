@@ -6,7 +6,10 @@ public class Polinomio {
 
 	public Polinomio(int g, double[] c) {
 		this.grado = g;
-		this.coeficientes = c;
+		this.coeficientes = new double[c.length];
+		
+		for (int i = 0; i < c.length; i++)
+			coeficientes[i] = c[i];
 	}
 
 	public double evaluarMSucesivas(double x) {
@@ -15,22 +18,16 @@ public class Polinomio {
 			return this.grado == 0 ? this.coeficientes[0] : x * this.coeficientes[0] + this.coeficientes[1];
 
 		double resultado = 0;
-		int cantMult = this.grado;
+		int multiplicaciones = this.grado;
 
-		double independiente = this.coeficientes[this.grado];
-		double lineal = x * this.coeficientes[this.grado - 1];
-
-		for (int i = 0; i < this.grado - 1; i++, cantMult--) {
-			double multSucesiva = x;
-			for (int j = 1; j < cantMult; j++)
-				multSucesiva *= x;
-			resultado += multSucesiva * this.coeficientes[i];
-
+		for (int i = 0; i < this.grado; i++, multiplicaciones--) {
+			double multiplicacion = x;
+			for (int j = 1; j < multiplicaciones; j++)
+				multiplicacion *= x;
+			resultado += multiplicacion * this.coeficientes[i];
 		}
 
-		resultado += lineal + independiente;
-
-		return resultado;
+		return resultado + this.coeficientes[this.grado];
 	}
 
 	public double evaluarRecursiva(double x) {
@@ -93,11 +90,10 @@ public class Polinomio {
 		if (this.grado < 2)
 			return this.grado == 0 ? this.coeficientes[0] : x * this.coeficientes[0] + this.coeficientes[1];
 
-		double resultado = x * this.coeficientes[this.coeficientes.length - 2]
-				+ this.coeficientes[this.coeficientes.length - 1];
-		double potencia = x * x;
+		double resultado = this.coeficientes[this.coeficientes.length - 1];
+		double potencia = x;
 
-		for (int i = this.grado - 2; 0 <= i; i--, potencia *= x)
+		for (int i = this.grado - 1; 0 <= i; i--, potencia *= x)
 			resultado += potencia * this.coeficientes[i];
 
 		return resultado;
@@ -109,24 +105,18 @@ public class Polinomio {
 			return this.grado == 0 ? this.coeficientes[0] : x * this.coeficientes[0] + this.coeficientes[1];
 
 		double resultado = 0;
-		double independiente = this.coeficientes[this.grado];
-		double lineal = x * this.coeficientes[this.grado - 1];
 
 		for (int i = 0, gradoK = this.grado; i < this.grado - 1; i++, gradoK--)
 			resultado += Math.pow(x, gradoK) * this.coeficientes[i];
 
-		resultado += lineal + independiente;
-
-		return resultado;
+		return resultado + x * this.coeficientes[this.grado - 1] + this.coeficientes[this.grado];
 	}
 
 	public double evaluarHorner(double x) {
 		double resultado = this.coeficientes[0];
 
-		for (int i = 1; i < this.coeficientes.length; i++) {
-			resultado *= x;
-			resultado += this.coeficientes[i];
-		}
+		for (int i = 1; i < this.coeficientes.length; i++)
+			resultado = resultado * x + this.coeficientes[i];
 
 		return resultado;
 	}
