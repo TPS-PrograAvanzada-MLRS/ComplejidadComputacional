@@ -14,11 +14,19 @@ private double [ ] coeficientes ;
 //La posicion 0 del arreglo de coeficientes contiene el coeficiente de grado n y 
 //la posicion n contiene al termino independiente .
 public Polinomio {. . .} 
+
 double evaluarMSucesivas (double x) {. . .} 
+
 double evaluarRecursiva (double x) {. . .} 
+
 double evaluarRecursivaPar (double x) {. . .} 
+
 double evaluarProgDinamica (double x) {. . .} 
-double evaluarMejorada (double x) {. . .} double evaluarPow (double x) {. . .} //y a sugerencia de Lucas P 
+
+double evaluarMejorada (double x) {. . .}
+
+double evaluarPow (double x) {. . .} //y a sugerencia de Lucas P 
+
 double evaluarHorner ( double x) {. . .} }
 
 1. Escribir evaluarMSucesivas utilizando calculo de potencia por multiplicaciones sucesivas
