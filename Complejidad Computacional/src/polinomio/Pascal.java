@@ -39,21 +39,4 @@ public class Pascal {
 			System.out.println();
 		}
 	}
-
-	public static void main(String[] args) {
-
-		Pascal p = new Pascal(10);
-
-		p.mostrar();
-
-		System.out.println(p.numero(8, 3));
-
-		for (int i = 0; i < 10; i++) {
-			System.out.println();
-			for (int j = 0; j < i + 1; j++)
-				System.out.println("C(" + i + "," + j + ") = " + p.numero(i, j));
-		}
-
-	}
-
 }

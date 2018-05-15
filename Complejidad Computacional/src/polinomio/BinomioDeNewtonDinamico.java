@@ -10,11 +10,11 @@ public class BinomioDeNewtonDinamico {
 	private BigDecimal[] coeficientes;
 
 	public BinomioDeNewtonDinamico(double a, double b, int n) {
-		PascalBigInteger c = new PascalBigInteger(n);
+		PascalDinamico pascal = new PascalDinamico();
 		this.grado = n;
 		this.coeficientes = new BigDecimal[n + 1];
 
-		BigInteger[] combinatorios = c.numeros(n);
+		BigInteger[] combinatorios = pascal.numeros(n);
 		BigDecimal[] potenciasDeA = new BigDecimal[n + 1];
 		BigDecimal[] potenciasDeB = new BigDecimal[n + 1];
 
